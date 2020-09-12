@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% block title %}{{ username.get_full_name }} пост от {{post.pub_date}}{% endblock %}
+{% block content %}
+
+<main role="main" class="container">
+    <div class="row">
+        {% include "includes/user_info.html" %}
+
+        <div class="col-md-9">
+
+            <!-- Пост -->
+            {% include "includes/post_item.html" with post=post %}
+            {% include "includes/comments.html" %}
+        </div>
+
+    </div>
+</main>
+
+{% endblock %}
